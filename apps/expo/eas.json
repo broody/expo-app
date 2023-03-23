@@ -1,5 +1,8 @@
 {
   "build": {
+    "preview": {
+      "distribution" : "internal"
+    },
     "development": {
       "distribution": "internal",
       "android": {

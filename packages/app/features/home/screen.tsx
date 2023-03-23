@@ -1,82 +1,54 @@
-import { Anchor, Button, H1, Input, Paragraph, Separator, Sheet, XStack, YStack } from '@my/ui'
-import { ChevronDown, ChevronUp } from '@tamagui/lucide-icons'
+import {
+  Anchor,
+  H1,
+  Input,
+  Paragraph,
+  Separator,
+  Sheet,
+  XStack,
+  YStack,
+  ListItem,
+  Text,
+  YGroup,
+} from '@my/ui'
+import { ChevronRight, Cloud, Moon, Star, Sun } from '@tamagui/lucide-icons'
+import { SolitoImage as Image } from 'solito/image'
 import React, { useState } from 'react'
-import { useLink } from 'solito/link'
-
+import bgImage from '../../../assets/RYO_Background.png'
+import Button from '@my/ui/src/Button'
 export function HomeScreen() {
-  const linkProps = useLink({
-    href: '/user/nate',
-  })
-
-  return (
-    <YStack f={1} jc="center" ai="center" p="$4" space>
-      <YStack space="$4" maw={600}>
-        <H1 ta="center">Welcome to Tamagui.</H1>
-        <Paragraph ta="center">
-          Here's a basic starter to show navigating from one screen to another. This screen uses the
-          same code on Next.js and React Native.
-        </Paragraph>
-
-        <Separator />
-        <Paragraph ta="center">
-          Made by{' '}
-          <Anchor color="$color12" href="https://twitter.com/natebirdman" target="_blank">
-            @natebirdman
-          </Anchor>
-          ,{' '}
-          <Anchor
-            color="$color12"
-            href="https://github.com/tamagui/tamagui"
-            target="_blank"
-            rel="noreferrer"
-          >
-            give it a ⭐️
-          </Anchor>
-        </Paragraph>
-      </YStack>
-
-      <XStack>
-        <Button {...linkProps}>Link to user</Button>
-      </XStack>
-
-      <SheetDemo />
-    </YStack>
-  )
-}
-
-function SheetDemo() {
-  const [open, setOpen] = useState(false)
-  const [position, setPosition] = useState(0)
   return (
     <>
-      <Button
-        size="$6"
-        icon={open ? ChevronDown : ChevronUp}
-        circular
-        onPress={() => setOpen((x) => !x)}
-      />
-      <Sheet
-        modal
-        open={open}
-        onOpenChange={setOpen}
-        snapPoints={[80]}
-        position={position}
-        onPositionChange={setPosition}
-        dismissOnSnapToBottom
-      >
-        <Sheet.Overlay />
-        <Sheet.Frame ai="center" jc="center">
-          <Sheet.Handle />
-          <Button
-            size="$6"
-            circular
-            icon={ChevronDown}
-            onPress={() => {
-              setOpen(false)
-            }}
-          />
-        </Sheet.Frame>
-      </Sheet>
+      <Image src={bgImage} alt="" fill />
+      <YStack f={1} jc="center" ai="center">
+        <YStack
+          height={600}
+          width={350}
+          p="12px"
+          bc="#202221"
+          borderRadius="6px"
+          borderColor="black"
+          borderWidth="2px"
+          backgroundColor="#202221"
+          space={20}
+        >
+          <Text fontFamily="ChicagoFLF">Lobby</Text>
+          <YGroup>
+            <YGroup.Item>
+              <ListItem title="test" icon={Star} />
+            </YGroup.Item>
+            <YGroup.Item>
+              <ListItem title="test" icon={Star} />
+            </YGroup.Item>
+            <YGroup.Item>
+              <ListItem title="test" icon={Star} />
+            </YGroup.Item>
+            <YGroup.Item>
+              <ListItem title="test" icon={Star} />
+            </YGroup.Item>
+          </YGroup>
+        </YStack>
+      </YStack>
     </>
   )
 }
